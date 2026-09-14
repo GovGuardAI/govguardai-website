@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GovGuard AI | Synthetic Demo Test</title>
+  <meta name="description" content="Interactive synthetic demo showing GovGuard AI payment-integrity anomaly scoring and explainable public-sector review logic.">
+  <style>
+    :root{--bg:#061326;--panel:#0d2546;--panel2:#102f59;--text:#ecf8ff;--muted:#b8d8ee;--cyan:#38cfff;--green:#35e0a1;--yellow:#ffd166;--red:#ff6b6b;--line:#2a5e87}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:radial-gradient(circle at top left,#123b68,#061326 48%);color:var(--text)}header{padding:34px 24px 18px;border-bottom:1px solid rgba(56,207,255,.25)}main{max-width:1160px;margin:0 auto;padding:24px}h1{font-size:clamp(34px,5vw,58px);line-height:.98;margin:10px 0 12px;letter-spacing:-.04em}h2{font-size:24px;margin:0 0 12px}p{color:var(--muted);line-height:1.55}.pill{display:inline-block;border:1px solid rgba(56,207,255,.45);background:rgba(56,207,255,.11);color:#c7f5ff;padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:rgba(13,37,70,.88);border:1px solid rgba(56,207,255,.25);border-radius:18px;padding:18px;box-shadow:0 14px 40px rgba(0,0,0,.18)}.metric{font-size:32px;font-weight:800;color:#fff}.label{font-size:13px;color:var(--muted)}button{background:linear-gradient(135deg,var(--cyan),#1686ff);color:#001a2d;border:0;border-radius:14px;padding:14px 18px;font-weight:900;cursor:pointer}button.secondary{background:transparent;color:var(--text);border:1px solid rgba(56,207,255,.35)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.layout{display:grid;grid-template-columns:1.25fr .75fr;gap:16px;margin-top:16px}table{width:100%;border-collapse:collapse;overflow:hidden;border-radius:14px}th,td{text-align:left;border-bottom:1px solid rgba(184,216,238,.15);padding:12px 10px;font-size:14px}th{color:#aeeeff;background:rgba(56,207,255,.09)}.risk{font-weight:800}.high{color:var(--red)}.med{color:var(--yellow)}.low{color:var(--green)}.finding{margin-top:12px;border-left:4px solid var(--cyan);background:rgba(56,207,255,.08);padding:12px;border-radius:12px}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#dcf7ff}.small{font-size:12px;color:#9dbbd1}.links a{color:#9aeaff;text-decoration:none;display:block;margin:9px 0}.links a:hover{text-decoration:underline}@media(max-width:900px){.grid,.layout{grid-template-columns:1fr}h1{font-size:38px}}
+  </style>
+</head>
+<body>
+<header>
+  <span class="pill">GovGuard AI Synthetic Demo Test | OpenAI/ChatGPT-connected review concept</span>
+  <h1>Explainable payment-integrity review for public agencies.</h1>
+  <p>This public demo uses synthetic data only. It shows how GovGuard AI can score accounts-payable and vendor records, surface ranked anomalies, and generate human-readable review explanations for finance, audit, procurement, and agency leadership.</p>
+  <div class="actions"><button onclick="runDemo()">Run synthetic anomaly scan</button><button class="secondary" onclick="resetDemo()">Reset</button></div>
+</header>
+<main>
+  <section class="grid">
+    <div class="card"><div class="metric" id="m1">24</div><div class="label">Synthetic transactions</div></div>
+    <div class="card"><div class="metric" id="m2">0</div><div class="label">Ranked anomalies found</div></div>
+    <div class="card"><div class="metric" id="m3">$0</div><div class="label">Synthetic dollars flagged</div></div>
+    <div class="card"><div class="metric" id="m4">0%</div><div class="label">Potential review focus</div></div>
+  </section>
+  <section class="layout">
+    <div class="card">
+      <h2>Top anomaly findings</h2>
+      <table><thead><tr><th>Risk</th><th>Vendor</th><th>Amount</th><th>Reason codes</th><th>Review path</th></tr></thead><tbody id="rows"><tr><td colspan="5" class="small">Click “Run synthetic anomaly scan” to generate findings.</td></tr></tbody></table>
+    </div>
+    <aside class="card">
+      <h2>How the demo works</h2>
+      <p>GovGuard AI applies a simple demonstration scoring model across public-sector patterns: duplicate payments, unusual vendor concentration, procurement threshold proximity, abnormal timing, restricted-fund indicators, and approval-chain review cues.</p>
+      <div class="finding"><strong>ChatGPT reviewer copilot concept:</strong><br><span id="explain">After a scan, select a finding to see a plain-English explanation and suggested review memo language.</span></div>
+      <div class="links">
+        <h2>Review links</h2>
+        <a href="/" target="_blank">GovGuardAI.com landing page</a>
+        <a href="https://github.com/GovGuardAI/govguardai-website" target="_blank">Public website repository</a>
+      </div>
+    </aside>
+  </section>
+  <p class="small">Disclaimer: synthetic demonstration only. GovGuard AI is intended to prioritize human review, not make automated fraud determinations.</p>
+</main>
+<script>
+const tx=[
+ ['N-1042','Northstar Office Supply',2450,'AP','Operations','General','normal'],['N-1043','Northstar Office Supply',2450,'AP','Operations','General','duplicate amount close date'],['B-2101','Blue Ridge Learning',9800,'Procurement','Instruction','Restricted','threshold proximity'],['B-2102','Blue Ridge Learning',9950,'Procurement','Instruction','Restricted','threshold proximity split purchase'],['C-3199','CivicWorks Consulting',42800,'Grant','Programs','Grant A','new vendor large grant spend'],['C-3200','CivicWorks Consulting',41500,'Grant','Programs','Grant A','repeat large grant spend'],['P-7781','Payroll Batch 18',17750,'Payroll','HR','General','overtime spike'],['R-8821','Regional Travel Reimb.',6125,'AP','Admin','General','reimbursement outlier'],['T-4100','Three Rivers Tech',14950,'Procurement','IT','General','vendor concentration'],['T-4101','Three Rivers Tech',15125,'Procurement','IT','General','vendor concentration repeat'],['M-1111','Metro Maintenance',5300,'AP','Facilities','General','normal'],['G-2332','Grant Supplies LLC',12050,'Grant','Instruction','Restricted','restricted fund timing'],['A-0201','Able Print Services',1800,'AP','Admin','General','normal'],['A-0202','Able Print Services',1800,'AP','Admin','General','duplicate amount close date'],['S-5550','Sierra Student Services',22600,'Grant','Programs','Grant B','large new vendor'],['W-6510','West County Data',7495,'Procurement','IT','General','normal'],['W-6511','West County Data',7495,'Procurement','IT','General','duplicate amount close date'],['H-9110','Harbor HR Advisors',18850,'Payroll','HR','General','payroll services outlier'],['K-3333','K12 Materials Group',9990,'Procurement','Instruction','Restricted','threshold proximity'],['K-3334','K12 Materials Group',9975,'Procurement','Instruction','Restricted','threshold proximity split purchase'],['D-6151','Delta Document Storage',2750,'AP','Records','General','normal'],['V-8412','Valley Vendor Group',33800,'AP','Facilities','General','large unusual AP'],['V-8413','Valley Vendor Group',33650,'AP','Facilities','General','repeat large AP'],['Q-1020','QuickPay Services',4010,'AP','Finance','General','unusual payment timing']
+];
+function score(r){let s=8;const note=r[6];if(note.includes('duplicate'))s+=50;if(note.includes('threshold'))s+=35;if(note.includes('split'))s+=22;if(note.includes('large'))s+=22;if(note.includes('outlier'))s+=25;if(note.includes('restricted'))s+=12;if(note.includes('repeat'))s+=15;if(note.includes('overtime'))s+=20;if(note.includes('timing'))s+=16;if(note.includes('concentration'))s+=18;return Math.min(99,s)}
+function runDemo(){const scored=tx.map(r=>({id:r[0],vendor:r[1],amount:r[2],type:r[3],dept:r[4],fund:r[5],note:r[6],risk:score(r)})).filter(x=>x.risk>=55).sort((a,b)=>b.risk-a.risk);document.getElementById('m2').textContent=scored.length;const dollars=scored.reduce((a,b)=>a+b.amount,0);document.getElementById('m3').textContent='$'+dollars.toLocaleString();document.getElementById('m4').textContent=Math.round(scored.length/tx.length*100)+'%';document.getElementById('rows').innerHTML=scored.map((x,i)=>`<tr onclick="explain(${i})"><td class="risk ${x.risk>80?'high':'med'}">${x.risk}</td><td>${x.vendor}<br><span class="small mono">${x.id}</span></td><td>$${x.amount.toLocaleString()}</td><td>${x.note}</td><td>Compare invoice, PO, vendor history, fund code, and approvals</td></tr>`).join('');window._scored=scored;explain(0)}
+function explain(i){const x=(window._scored||[])[i];if(!x)return;document.getElementById('explain').innerHTML=`<strong>${x.vendor}</strong> was flagged with a risk score of <strong>${x.risk}</strong> because the record indicates <span class="mono">${x.note}</span>. Recommended review: compare source invoices, purchase orders, vendor master data, fund restrictions, payment timing, and approval metadata before any escalation.`}
+function resetDemo(){document.getElementById('m2').textContent='0';document.getElementById('m3').textContent='$0';document.getElementById('m4').textContent='0%';document.getElementById('rows').innerHTML='<tr><td colspan="5" class="small">Click “Run synthetic anomaly scan” to generate findings.</td></tr>';document.getElementById('explain').textContent='After a scan, select a finding to see a plain-English explanation and suggested review memo language.'}
+</script>
+</body>
+</html>
